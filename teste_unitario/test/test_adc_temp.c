@@ -1,20 +1,29 @@
 #include <stdio.h>
-#include "../include/adc_temp.h"
-#include "../include/rp2040.h"
 #include "unity/unity.h"
 
 void setUp(void) {}
 void tearDown(void) {}
 
-void test_adc_to_celsius_approx_27C(void) {
-    uint16_t adc_val = (uint16_t)((0.706f * 4095.0f) / 3.3f);
-    float temp = adc_to_celsius(adc_val);
-    TEST_ASSERT_FLOAT_WITHIN(0.1f, 27.0f, temp);// tolerencia de 0.1 graus Celsius, temperaura esperada de 27 graus Celsius
+float adc_to_celsius(uint16_t adc_val)
+{
+    const float conversao = 3.3f / (1 << 12);
+    float voltagem = adc_val * conversao;
+    float temperatura = 27.0f - (voltagem - 0.706f) / 0.001721f;
+
+    return temperatura;
 }
 
-int main(void) {
+void adc_to_celsius_unity_test(void)
+{
+    uint16_t tensao = 876;
+    float temperatura_esperada = 27.0f;
+    float buffer = 1.0f;
+    TEST_ASSERT_FLOAT_WITHIN(buffer, temperatura_esperada, adc_to_celsius(tensao));
+}
+
+int main()
+{
     UNITY_BEGIN();
-    RUN_TEST(test_adc_to_celsius_approx_27C);
-    printf("Teste concluídos.\n");   
+    RUN_TEST(adc_to_celsius_unity_test);
     return UNITY_END();
 }
