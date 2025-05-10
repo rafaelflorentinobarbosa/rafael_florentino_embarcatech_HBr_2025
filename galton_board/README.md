@@ -64,4 +64,4 @@ A simulação representa a queda de bolas em um tabuleiro triangular de pinos, d
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/rafaelflorentinobarbosa/rafael_florentino_embarcatech_HBr_2025/tree/main/galton-board-oled
+   git clone https://github.com/rafaelflorentinobarbosa/rafael_florentino_embarcatech_HBr_2025/tree/main/galton-board
