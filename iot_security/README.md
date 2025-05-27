@@ -82,6 +82,19 @@ Para reproduzir e observar o funcionamento do projeto, siga os passos abaixo:
 
 ---
 
+#### f) Prints das Principais Etapas 🧐
+
+![alt text](1.jpg)
+
+![alt text](2.jpg)
+
+![alt text](<etapa 3.1.jpg>)
+
+![alt text](<etapa 3.3.jpg>)
+
+![alt text](<etapa 4.6.jpg>)
+
+
 ### 2. 📈 Discussão: Escalabilidade das Técnicas
 
 Vamos analisar como as técnicas implementadas se comportam em um ambiente maior, como uma rede escolar.
